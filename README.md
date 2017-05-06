@@ -14,8 +14,14 @@ Plugin for Deezer
 
 ## Usage
 ```
-You: Lance la playlist
+You: Lance la playlist <NomChoisi>
 Jarvis: OK, c'est parti
+You: Mets en Pause 
+Jarvis:...
+You: Remets la lecture
+Jarvis:...
+You: Arrête la musique
+Jarvis:...
 ```
 
 ## Author
