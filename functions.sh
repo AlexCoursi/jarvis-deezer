@@ -47,7 +47,9 @@ pg_dz_lecturePause()
 		jv_pg_dz_hauteurFenetre=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre getwindowgeometry | grep Geometry | sed -e 's/.*Geometry.*x\(.*\)/\1/g'`
 		jv_pg_dz_hauteurDuBoutonPlay=$(($jv_pg_dz_hauteurFenetre - $jv_pg_dz_offsetHauteurNegativeBoutonPlay))
 		jv_pg_dz_longueurDuBoutonPlay=$jv_pg_dz_offsetLargeurPositiveBoutonPlay
-		xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 0 0 mousemove --window %1 $jv_pg_dz_longueurDuBoutonPlay $jv_pg_dz_hauteurDuBoutonPlay click 1
+		xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 0 0
+		sleep 1 
+                xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 $jv_pg_dz_longueurDuBoutonPlay $jv_pg_dz_hauteurDuBoutonPlay click 1
 }
 
 pg_dz_runDeezer()
