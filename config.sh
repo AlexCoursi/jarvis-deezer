@@ -2,4 +2,5 @@ jv_pg_dz_liste_playlists="detente_1290316405;cocktail_1002095261;danse_224363314
 jv_pg_dz_nomBrowser="chromium-browser --new-window" #ne doit pas être modifié
 jv_pg_dz_nomFenetre="Deezer" #ne doit pas être modifié
 jv_pg_dz_nbTabLecture=25 #à modifier quand deezer modifie leur page
-
+jv_pg_dz_offsetHauteurNegativeBoutonPlay=56
+jv_pg_dz_offsetLargeurPositiveBoutonPlay=107
