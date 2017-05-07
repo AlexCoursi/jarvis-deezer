@@ -12,6 +12,11 @@ For multi-language plugin:
 ## Description
 Plugin for Deezer
 
+## Pré-requis
+Il faut au préalable lancer Deezer sur Chromium et s'enregistrer (compte gratuit).
+Il faut ensuite lancer Jarvis en mode normal (en mode background, il y a des problèmes liés à la veriable d'environnement DISPLAY et xdotool).
+Testé sur Raspberry PI3.
+
 ## Usage
 ```
 You: Lance la playlist <NomChoisi>
