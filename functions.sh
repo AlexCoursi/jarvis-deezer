@@ -76,6 +76,16 @@ case "$1" in
         pg_dz_lecturePause
         ;;
 
+  liste)
+	say "La liste des playlistes est : "
+	playlists=$(echo $jv_pg_dz_liste_playlists | tr ";" "\n")
+        for playlist in $playlists
+        do
+             index_tiret=`expr index "$playlist" _`
+             cle=${playlist:0:index_tiret-1}
+	     say "$cle "
+        done
+	;;
 
 esac
 }

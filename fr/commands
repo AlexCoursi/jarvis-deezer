@@ -1,4 +1,4 @@
-*PLAYLIST* (*)==say "OK, c'est parti !" && pg_dz_runDeezer start (1)
+*LANC*PLAYLIST* (*)==say "OK, c'est parti !" && pg_dz_runDeezer start (1)
 *ARRETE*|*STOP*==say " " && pg_dz_runDeezer stop
 *PAUSE*|*LECTURE*==say " " && pg_dz_runDeezer lecture 
-
+*LIST*PLAYLIST*==pg_dz_runDeezer liste
