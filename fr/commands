@@ -1,4 +1,7 @@
-*LANC*PLAYLIST* (*)==say "OK, c'est parti !" && pg_dz_runDeezer start (1)
+*LIST*PLAYLIST*==pg_dz_runDeezer liste
+*PLAYLIST* (*)==say "OK, c'est parti !" && pg_dz_runDeezer start (1)
 *ARRETE*|*STOP*==say " " && pg_dz_runDeezer stop
 *PAUSE*|*LECTURE*==say " " && pg_dz_runDeezer lecture 
-*LIST*PLAYLIST*==pg_dz_runDeezer liste
+*VOLUME*D*FAU*==say " "&& pg_dz_volume $jv_pg_dz_volumeDefaut
+*VOLUME*FOND*==say " "&& pg_dz_volume 100
+*VOLUME* (*)==say " " && pg_dz_volume (1)

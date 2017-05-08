@@ -28,6 +28,14 @@ Jarvis:...
 You: Arrête la musique
 Jarvis:...
 ```
+*LIST*PLAYLIST*=Donne la liste des playlistes programmées
+*PLAYLIST* (*)=Lance la playliste choisie
+*ARRETE*|*STOP*=Arrête la lecture
+*PAUSE*|*LECTURE*=Met en pause ou lecture
+*VOLUME*D*FAU*=Met le volume par défaut
+*VOLUME*FOND*=Met le volume au maximum
+*VOLUME* (*)=Met le volume à X (%)
+
 
 ## Author
 Alexandre Coursimault
