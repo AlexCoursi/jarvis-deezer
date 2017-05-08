@@ -10,7 +10,8 @@ For multi-language plugin:
 - optionally write the Description / Usage sections in several languages
 -->
 ## Description
-Plugin for Deezer
+Plugin for Deezer : On peut enregistrer des playlistes et les jouer / mettre en pause / modifier via Jarvis.
+On peut également régler le volume des enceintes.
 
 ## Pré-requis
 Il faut au préalable lancer Deezer sur Chromium et s'enregistrer (compte gratuit).
@@ -27,7 +28,13 @@ You: Remets la lecture
 Jarvis:...
 You: Arrête la musique
 Jarvis:...
-```
+You: Mets le volume à fond
+Jarvis:...
+You: Mets le volume à 25
+Jarvis:...
+
+-
+
 *LIST*PLAYLIST*=Donne la liste des playlistes programmées
 *PLAYLIST* (*)=Lance la playliste choisie
 *ARRETE*|*STOP*=Arrête la lecture
@@ -35,6 +42,8 @@ Jarvis:...
 *VOLUME*D*FAU*=Met le volume par défaut
 *VOLUME*FOND*=Met le volume au maximum
 *VOLUME* (*)=Met le volume à X (%)
+```
+
 
 
 ## Author
