@@ -4,4 +4,4 @@ jv_pg_dz_nomFenetre="Deezer" #ne doit pas être modifié
 jv_pg_dz_nbTabLecture=25 #NEST PLUS UTILISE - à modifier quand deezer modifie leur page
 jv_pg_dz_offsetHauteurNegativeBoutonPlay=56 #ne doit pas être modifié
 jv_pg_dz_offsetLargeurPositiveBoutonPlay=107 #ne doit pas être modifié
-jv_pg_dz_volumeDefaut=50 #Volumen par défaut en pourcent
+jv_pg_dz_volumeDefaut=90 #Volumen par défaut en pourcent
