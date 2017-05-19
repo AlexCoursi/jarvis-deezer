@@ -1,7 +1,8 @@
-*LIST*PLAYLIST*==pg_dz_runDeezer liste
-*PLAYLIST* (*)==say "OK, c'est parti !" && pg_dz_runDeezer start (1)
-*ARRETE*MUSIQUE*|*STOP*MUSIQUE*==say " " && pg_dz_runDeezer stop
-*PAUSE*|*LECTURE*==say " " && pg_dz_runDeezer lecture 
-*VOLUME*DEFAU*==say " "&& pg_dz_volume $jv_pg_dz_volumeDefaut
-*VOLUME*FOND*==say " "&& pg_dz_volume 100
-*VOLUME*A (*)==say " " && pg_dz_volume (1)
+*LIST*PLAYLIST*DEEZER*==pg_dz_runDeezer liste
+*PLAYLIST*DEEZER* (*)==playlist="(1)" && pg_dz_runDeezer start "$playlist" && say "Deezer lancée avec la playlist $playlist."
+*ARRETE*DEEZER*|*STOP*DEEZER*==pg_dz_runDeezer stop && say "Deezer arrété."
+*PAUSE*DEEZER*==pg_dz_runDeezer lecture && say "Deezer en pause."
+*LECTURE*DEEZER*==pg_dz_runDeezer lecture && say "Deezer lancé."
+*VOLUME*DEFAU*DEEZER*==pg_dz_volume $jv_pg_dz_volumeDefaut && say "Volume par défault pour deezer."
+*VOLUME*FOND*DEEZER*==pg_dz_volume 100 && say "Volume par max pour deezer."
+*VOLUME*DEEZER*A (*)==volume="(1)" && pg_dz_volume "$volume" && say "Volume à $volume pourcent pour deezer."
