@@ -1,5 +1,9 @@
-#!/bin/bash
-# This file will be automatically sourced at the installation of your plugin
-# Use only if you need to perform changes on the user system such as installing software
+#!/usr/bin/env bash
 
-sudo apt-get install -y xdotool screen
+# Install all packages needed to use deezer
+[[ -z $(which xdotool) ]] && sudo apt-get --yes --force-yes install xdotool
+[[ -z $(which screen) ]] && sudo apt-get --yes --force-yes install screen
+[[ -z $(which lxterminal) ]] && sudo apt-get --yes --force-yes install lxterminal
+[[ -z $(which chromium-browser) ]] && sudo apt-get --yes --force-yes install chromium-browser
+[[ -z $(which chromium) ]] && sudo apt-get --yes --force-yes install chromium
+sudo apt-get --yes --force-yes install libcanberra-gtk*
