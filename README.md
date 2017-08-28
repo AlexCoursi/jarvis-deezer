@@ -24,6 +24,9 @@ Jarvis:...
 
 You: Mets le volume deezer à 25
 Jarvis:...
+
+You: Change de chanson (ou mets la chanson suivante)
+Jarvis:...
 ```
 
 
