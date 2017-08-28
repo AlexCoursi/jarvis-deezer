@@ -56,6 +56,20 @@ pg_dz_lecturePause()
 	fi
 }
 
+pg_dz_nextSong()
+{
+        deezerDejaLance=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre`
+        if [ ! "$deezerDejaLance" == "" ]
+        then
+                jv_pg_dz_hauteurFenetre=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre getwindowgeometry | grep Geometry | sed -e 's/.*Geometry.*x\(.*\)/\1/g'`
+                jv_pg_dz_hauteurDuBoutonNext=$(($jv_pg_dz_hauteurFenetre - $jv_pg_dz_offsetHauteurNegativeBoutonNext))
+                jv_pg_dz_longueurDuBoutonNext=$jv_pg_dz_offsetLargeurPositiveBoutonNext
+                xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 0 0
+                sleep 1
+                xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 $jv_pg_dz_longueurDuBoutonNext $jv_pg_dz_hauteurDuBoutonNext click 1
+        fi
+}
+
 pg_dz_volume()
 {
 	amixer cset numid=1 -- $1%
@@ -94,6 +108,10 @@ case "$1" in
   lecture|pause)
         pg_dz_lecturePause
         ;;
+
+  next)
+	pg_dz_nextSong
+	;;
 
   liste)
 	say "La liste des playlistes est : "
