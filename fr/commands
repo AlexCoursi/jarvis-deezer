@@ -1,5 +1,5 @@
 *LIST*PLAYLIST*==pg_dz_runDeezer liste
-*PLAYLIST* (*)==playlist="(1)" && pg_dz_runDeezer start "$playlist" && say "Deezer lancé avec la playlist $playlist."
+*PLAYLIST* (*)==playlistDemandee="(1)" && pg_dz_runDeezer start "$playlistDemandee" && say "Deezer lancé avec la playlist $playlistDemandee."
 *ARRETE*|*STOP*==pg_dz_runDeezer stop && say "Deezer arrêté."
 *PAUSE*==pg_dz_runDeezer lecture && say "Deezer en pause."
 *LECTURE*==pg_dz_runDeezer lecture && say "Deezer lancé."
