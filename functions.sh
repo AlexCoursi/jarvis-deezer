@@ -78,7 +78,8 @@ pg_dz_volume()
 pg_dz_volumeChange()
 {
 	volumeCourant=awk -F"[][]" '/dB/ { print $2 }' <(amixer) | cut -f1 -d %
-	volumeNew=$((volumeCourant + $1)) 
+	incr=$1
+	volumeNew=$((volumeCourant + incr)) 
 	amixer cset numid=1 -- $volumeNew%
 }
 
