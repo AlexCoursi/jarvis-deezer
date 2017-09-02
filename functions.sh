@@ -75,6 +75,13 @@ pg_dz_volume()
 	amixer cset numid=1 -- $1%
 }
 
+pg_dz_volumeChange()
+{
+	volumeCourant=awk -F"[][]" '/dB/ { print $2 }' <(amixer) | cut -f1 -d %
+	volumeNew=$(($volumeCourant + $1)) 
+	amixer cset numid=1 -- $volumeNew%
+}
+
 
 pg_dz_runDeezer()
 {
