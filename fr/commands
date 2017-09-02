@@ -7,6 +7,6 @@
 *VOLUME*DEFAU*==pg_dz_volume $jv_pg_dz_volumeDefaut && say "Volume par défault."
 *VOLUME*FOND*==pg_dz_volume 100 && say "Volume au max."
 *VOLUME*A (*)==volume="(1)" && pg_dz_volume "$volume" && say "Volume à $volume pourcent"
-*PLUS*FORT*|*AUGMENTE*==pg_dz_volumeChange 2 && say "Volume plus fort"
+*PLUS*FORT*|*AUGMENTE*|*MONTE*==pg_dz_volumeChange 2 && say "Volume plus fort"
 *MOINS*FORT*|*BAISSE*==pg_dz_volumeChange -2 && say "Volume moins fort"
 
