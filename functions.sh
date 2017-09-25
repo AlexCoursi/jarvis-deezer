@@ -56,20 +56,6 @@ pg_dz_lecturePause()
 	fi
 }
 
-pg_dz_lecturePauseMix()
-{
-	deezerDejaLance=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre`
-        if [ ! "$deezerDejaLance" == "" ]
-        then
-		jv_pg_dz_hauteurFenetre=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre getwindowgeometry | grep Geometry | sed -e 's/.*Geometry.*x\(.*\)/\1/g'`
-		jv_pg_dz_hauteurDuBoutonPlayMix=$jv_pg_dz_offsetHauteurPositiveBoutonPlayMix
-		jv_pg_dz_longueurDuBoutonPlayMix=$jv_pg_dz_offsetLargeurPositiveBoutonPlayMix
-		xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 0 0
-		sleep 1 
-                xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 $jv_pg_dz_longueurDuBoutonPlayMix $jv_pg_dz_hauteurDuBoutonPlayMix click 1
-	fi
-}
-
 pg_dz_nextSong()
 {
         deezerDejaLance=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre`
@@ -156,7 +142,7 @@ case "$1" in
                 echo "[$cle] => [$valeur]"
 
         pg_dz_lancerChromium "http://www.deezer.com/mixes/genre/$valeur"
-        pg_dz_lecturePauseMix
+        pg_dz_lecturePause
         ;;
 
   stop)
