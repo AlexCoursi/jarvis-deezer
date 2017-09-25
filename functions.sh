@@ -12,7 +12,7 @@ pg_dz_lancerChromium()
         deezerDejaLance=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre`
         if [ "$deezerDejaLance" == "" ]
         then
-                lxterminal -e screen $jv_pg_dz_nomBrowser http://www.deezer.com/playlist/$1
+                lxterminal -e screen $jv_pg_dz_nomBrowser $1
                 sleep 20s
                 xdotool search --desktop 0 --name LXTerminal windowactivate
                 xdotool key shift+ctrl+q
@@ -56,6 +56,20 @@ pg_dz_lecturePause()
 	fi
 }
 
+pg_dz_lecturePauseMix()
+{
+	deezerDejaLance=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre`
+        if [ ! "$deezerDejaLance" == "" ]
+        then
+		jv_pg_dz_hauteurFenetre=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre getwindowgeometry | grep Geometry | sed -e 's/.*Geometry.*x\(.*\)/\1/g'`
+		jv_pg_dz_hauteurDuBoutonPlayMix=$jv_pg_dz_offsetHauteurPositiveBoutonPlayMix
+		jv_pg_dz_longueurDuBoutonPlayMix=$jv_pg_dz_offsetLargeurPositiveBoutonPlayMix
+		xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 0 0
+		sleep 1 
+                xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 $jv_pg_dz_longueurDuBoutonPlayMix $jv_pg_dz_hauteurDuBoutonPlayMix click 1
+	fi
+}
+
 pg_dz_nextSong()
 {
         deezerDejaLance=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre`
@@ -67,6 +81,20 @@ pg_dz_nextSong()
                 xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 0 0
                 sleep 1
                 xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 $jv_pg_dz_longueurDuBoutonNext $jv_pg_dz_hauteurDuBoutonNext click 1
+        fi
+}
+
+pg_dz_previousSong()
+{
+        deezerDejaLance=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre`
+        if [ ! "$deezerDejaLance" == "" ]
+        then
+                jv_pg_dz_hauteurFenetre=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre getwindowgeometry | grep Geometry | sed -e 's/.*Geometry.*x\(.*\)/\1/g'`
+                jv_pg_dz_hauteurDuBoutonPrevious=$(($jv_pg_dz_hauteurFenetre - $jv_pg_dz_offsetHauteurNegativeBoutonPrevious))
+                jv_pg_dz_longueurDuBoutonPrevious=$jv_pg_dz_offsetLargeurPositiveBoutonPrevious
+                xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 0 0
+                sleep 1
+                xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 $jv_pg_dz_longueurDuBoutonPrevious $jv_pg_dz_hauteurDuBoutonPrevious click 1
         fi
 }
 
@@ -105,8 +133,30 @@ case "$1" in
                 done
                 echo "[$cle] => [$valeur]"
 
-        pg_dz_lancerChromium "$valeur"
+        pg_dz_lancerChromium "http://www.deezer.com/playlist/$valeur"
         pg_dz_lecturePause
+        ;;
+		
+  startMix)
+        pg_dz_arreterChromium
+
+                playlists=$(echo $jv_pg_dz_liste_mix | tr ";" "\n")
+                for playlist in $playlists
+                do
+                        index_tiret=`expr index "$playlist" _`
+                        cle=${playlist:0:index_tiret-1}
+                        longueur=`expr length $playlist`
+                        valeur=${playlist:index_tiret:longueur-index_tiret}
+                        if [ $cle == "$2" ]
+                        then
+                                break
+                        fi
+                        #Si on arrive la, c'est qu'on prend le dernier
+                done
+                echo "[$cle] => [$valeur]"
+
+        pg_dz_lancerChromium "http://www.deezer.com/mixes/genre/$valeur"
+        pg_dz_lecturePauseMix
         ;;
 
   stop)
@@ -120,10 +170,22 @@ case "$1" in
   next)
 	pg_dz_nextSong
 	;;
+	
+  previous)
+	pg_dz_previousSong
+	;;
 
   liste)
 	say "La liste des playlistes est : "
 	playlists=$(echo $jv_pg_dz_liste_playlists | tr ";" "\n")
+        for playlist in $playlists
+        do
+             index_tiret=`expr index "$playlist" _`
+             cle=${playlist:0:index_tiret-1}
+	     say "$cle "
+        done
+	say "La liste des mix est : "
+	playlists=$(echo $jv_pg_dz_liste_mix | tr ";" "\n")
         for playlist in $playlists
         do
              index_tiret=`expr index "$playlist" _`

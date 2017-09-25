@@ -1,12 +1,14 @@
 *LIST*PLAYLIST*==pg_dz_runDeezer liste
 *PLAYLIST* (*)==playlistDemandee="(1)" && pg_dz_runDeezer start "$playlistDemandee" && say "Deezer lancé avec la playlist $playlistDemandee."
+*MIX* (*)==mixDemande="(1)" && pg_dz_runDeezer startMix "$mixDemande" && say "Deezer lancé avec le mix $mixDemande."
 *ARRETE*|*STOP*==pg_dz_runDeezer stop && say "Deezer arrêté."
 *PAUSE*==pg_dz_runDeezer lecture && say "Deezer en pause."
 *LECTURE*==pg_dz_runDeezer lecture && say "Deezer lancé."
 *CHANSON*SUIVANT*|*CHANGE*CHANSON*==pg_dz_runDeezer next && say "Chanson suivante"
+*CHANSON*PRECEDENT*|*CHANSON*AVANT*==pg_dz_runDeezer previous && say "Chanson précédente"
 *VOLUME*DEFAU*==pg_dz_volume $jv_pg_dz_volumeDefaut && say "Volume par défault."
 *VOLUME*FOND*==pg_dz_volume 100 && say "Volume au max."
 *VOLUME*A (*)==volume="(1)" && pg_dz_volume "$volume" && say "Volume à $volume pourcent"
-*PLUS*FORT*|*AUGMENTE*|*MONTE*==pg_dz_volumeChange 2 && say "Volume plus fort"
-*MOINS*FORT*|*BAISSE*==pg_dz_volumeChange -2 && say "Volume moins fort"
+*PLUS*FORT*|*AUGMENTE*|*MONTE*==pg_dz_volumeChange $jv_pg_dz_incrementVolume && say "Volume plus fort"
+*MOINS*FORT*|*BAISSE*==pg_dz_volumeChange -$jv_pg_dz_incrementVolume && say "Volume moins fort"
 
