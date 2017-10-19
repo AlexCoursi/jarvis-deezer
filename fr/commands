@@ -6,7 +6,7 @@
 *LECTURE*==pg_dz_runDeezer lecture && say "Deezer lancé."
 *CHANSON*SUIVANT*|*CHANGE*CHANSON*==pg_dz_runDeezer next && say "Chanson suivante"
 *CHANSON*PRECEDENT*|*CHANSON*AVANT*==pg_dz_runDeezer previous && say "Chanson précédente"
-*VOLUME*DEFAU*==pg_dz_volume $jv_pg_dz_volumeDefaut && say "Volume par défault."
+*VOLUME*PAR D*FAU*==pg_dz_volume $jv_pg_dz_volumeDefaut && say "Volume par défault."
 *VOLUME*FOND*==pg_dz_volume 100 && say "Volume au max."
 *VOLUME*A (*)==volume="(1)" && pg_dz_volume "$volume" && say "Volume à $volume pourcent"
 *PLUS*FORT*|*AUGMENTE*|*MONTE*==pg_dz_volumeChange $jv_pg_dz_incrementVolume && say "Volume plus fort"
