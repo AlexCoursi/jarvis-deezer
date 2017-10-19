@@ -9,25 +9,24 @@
 
 pg_dz_lancerChromium()
 {
-        deezerDejaLance=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre`
+        deezerDejaLance=`xdotool search --class chromium | tail -1`
         if [ "$deezerDejaLance" == "" ]
         then
                 lxterminal -e screen $jv_pg_dz_nomBrowser $1
-                sleep 20s
-                xdotool search --desktop 0 --name LXTerminal windowactivate
+                sleep 17s
+                xdotool search --name screen windowactivate
                 xdotool key shift+ctrl+q
-                xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 0 0 click 1
         fi
 }
 
 pg_dz_arreterChromium()
 {
-        deezerDejaLance=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre`
+	deezerDejaLance=`xdotool search --class chromium | tail -1`
         if [ ! "$deezerDejaLance" == "" ]
         then
-                xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate
+                xdotool windowactivate $deezerDejaLance
                 xdotool key ctrl+w
-                deezerDejaLance=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre`
+	        deezerDejaLance=`xdotool search --class chromium | tail -1`
                 if [ ! "$deezerDejaLance" == "" ]
                 then
                         xdotool key "Return"
@@ -35,52 +34,40 @@ pg_dz_arreterChromium()
         fi
 }
 
-#pg_dz_lecturePause()
-#{
-#        xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 0 75 click 1
-#        seq $jv_pg_dz_nbTabLecture | xargs -Iz xdotool key Tab sleep 0.1s
-#        xdotool key space
-#}
 
 pg_dz_lecturePause()
 {
-	deezerDejaLance=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre`
+        deezerDejaLance=`xdotool search --class chromium | tail -1`
         if [ ! "$deezerDejaLance" == "" ]
         then
-		jv_pg_dz_hauteurFenetre=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre getwindowgeometry | grep Geometry | sed -e 's/.*Geometry.*x\(.*\)/\1/g'`
+		jv_pg_dz_hauteurFenetre=`xdotool getwindowgeometry $deezerDejaLance | grep Geometry | sed -e 's/.*Geometry.*x\(.*\)/\1/g'`
 		jv_pg_dz_hauteurDuBoutonPlay=$(($jv_pg_dz_hauteurFenetre - $jv_pg_dz_offsetHauteurNegativeBoutonPlay))
 		jv_pg_dz_longueurDuBoutonPlay=$jv_pg_dz_offsetLargeurPositiveBoutonPlay
-		xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 0 0
-		sleep 1 
-                xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 $jv_pg_dz_longueurDuBoutonPlay $jv_pg_dz_hauteurDuBoutonPlay click 1
+                xdotool windowactivate $deezerDejaLance mousemove --sync --window $deezerDejaLance $jv_pg_dz_longueurDuBoutonPlay $jv_pg_dz_hauteurDuBoutonPlay click 1
 	fi
 }
 
 pg_dz_nextSong()
 {
-        deezerDejaLance=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre`
+        deezerDejaLance=`xdotool search --class chromium | tail -1`
         if [ ! "$deezerDejaLance" == "" ]
         then
-                jv_pg_dz_hauteurFenetre=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre getwindowgeometry | grep Geometry | sed -e 's/.*Geometry.*x\(.*\)/\1/g'`
+                jv_pg_dz_hauteurFenetre=`xdotool getwindowgeometry $deezerDejaLance | grep Geometry | sed -e 's/.*Geometry.*x\(.*\)/\1/g'`
                 jv_pg_dz_hauteurDuBoutonNext=$(($jv_pg_dz_hauteurFenetre - $jv_pg_dz_offsetHauteurNegativeBoutonNext))
                 jv_pg_dz_longueurDuBoutonNext=$jv_pg_dz_offsetLargeurPositiveBoutonNext
-                xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 0 0
-                sleep 1
-                xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 $jv_pg_dz_longueurDuBoutonNext $jv_pg_dz_hauteurDuBoutonNext click 1
+                xdotool windowactivate $deezerDejaLance mousemove --sync --window $deezerDejaLance $jv_pg_dz_longueurDuBoutonNext $jv_pg_dz_hauteurDuBoutonNext click 1
         fi
 }
 
 pg_dz_previousSong()
 {
-        deezerDejaLance=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre`
+	deezerDejaLance=`xdotool search --class chromium | tail -1`
         if [ ! "$deezerDejaLance" == "" ]
         then
-                jv_pg_dz_hauteurFenetre=`xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre getwindowgeometry | grep Geometry | sed -e 's/.*Geometry.*x\(.*\)/\1/g'`
+                jv_pg_dz_hauteurFenetre=`xdotool getwindowgeometry $deezerDejaLance | grep Geometry | sed -e 's/.*Geometry.*x\(.*\)/\1/g'`
                 jv_pg_dz_hauteurDuBoutonPrevious=$(($jv_pg_dz_hauteurFenetre - $jv_pg_dz_offsetHauteurNegativeBoutonPrevious))
                 jv_pg_dz_longueurDuBoutonPrevious=$jv_pg_dz_offsetLargeurPositiveBoutonPrevious
-                xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 0 0
-                sleep 1
-                xdotool search --desktop 0 --name $jv_pg_dz_nomFenetre windowactivate --sync mousemove --window %1 $jv_pg_dz_longueurDuBoutonPrevious $jv_pg_dz_hauteurDuBoutonPrevious click 1
+                xdotool windowactivate $deezerDejaLance mousemove --sync --window $deezerDejaLance $jv_pg_dz_longueurDuBoutonPrevious $jv_pg_dz_hauteurDuBoutonPrevious click 1                
         fi
 }
 

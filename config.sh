@@ -1,7 +1,7 @@
 jv_pg_dz_liste_playlists="detente_1290316405;cocktail_1002095261;dance_2243633142;romantique_645357645;salsa_2045665684;dimanche_707390125;classique_1431731205;acoustic_1274663331;repas_2631718424;ambiance_1086833241;*_2045665684" #liste sous la forme nom de la playliste pour la reconnaissance vocale _ numéro de la playliste deezer
 jv_pg_dz_liste_mix="bresilien_34895;pop_31061;rock_30891;classique_30661;hip-hop_30991;doux_39051;*_34895" #liste sous la forme nom de la playliste pour la reconnaissance vocale _ numéro de la playliste deezer
 jv_pg_dz_nomBrowser="chromium-browser --new-window" #ne doit pas être modifié ("chromium --new-window" pour debian hors raspberry)
-jv_pg_dz_nomFenetre="Deezer" #ne doit pas être modifié
+jv_pg_dz_nomFenetre="chromium" #ne doit pas être modifié
 jv_pg_dz_offsetHauteurNegativeBoutonPlay=56 #ne doit pas être modifié
 jv_pg_dz_offsetLargeurPositiveBoutonPlay=107 #ne doit pas être modifié
 jv_pg_dz_offsetHauteurNegativeBoutonNext=56 #ne doit pas être modifié
