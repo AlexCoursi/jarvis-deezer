@@ -7,22 +7,25 @@ Play/Stop/Pause a deezer playlist with <a target="_blank" href="http://domotique
 
 ## Usage
 ```
-You: Lance la playlist deezer <NomChoisi>
+You: Lance la playlist <NomChoisi>
 Jarvis: OK, c'est parti
 
-You: Mets deezer en pause
+You: Mets le mix <NomChoisi>
+Jarvis : OK c'est parti
+
+You: Mets en pause
 Jarvis:...
 
-You: Remets la lecture deezer
+You: Remets la lecture
 Jarvis:...
 
-You: Arrête la musique deezer
+You: Arrête la musique
 Jarvis:...
 
-You: Mets le volume deezer à fond
+You: Mets le volume à fond
 Jarvis:...
 
-You: Mets le volume deezer à 25
+You: Mets le volume à 25
 Jarvis:...
 
 You: Change de chanson (ou mets la chanson suivante)
@@ -34,7 +37,7 @@ Jarvis:...
 
 1) Be sure to have a <b>desktop</b> rapbian or debian version.
 
-2) Add this plugin to your <a target="_blank" href="http://domotiquefacile.fr/jarvis/">Jarvis assistant</a> (<a target="_blank" href="http://domotiquefacile.fr/jarvis/content/plugins">more info here</a>): ```./jarvis.sh -p https://github.com/QuentinCG/jarvis-deezer```
+2) Add this plugin to your <a target="_blank" href="http://domotiquefacile.fr/jarvis/">Jarvis assistant</a> (<a target="_blank" href="http://domotiquefacile.fr/jarvis/content/plugins">more info here</a>): ```./jarvis.sh -p https://github.com/AlexCoursi/jarvis-deezer```
 
 3) Login to deezer with Chromium (free account).
 
@@ -47,7 +50,7 @@ Jarvis:...
 
 ## Author
 [Quentin Comte-Gaz](http://quentin.comte-gaz.com/) inspired and improved from [Alexandre Coursimault](https://github.com/AlexCoursi/jarvis-deezer).
-
+(Quentin has a fork with the word deezer in the comands to work with other music players in Jarvis)
 
 ## License
 
