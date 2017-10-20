@@ -41,7 +41,7 @@ Jarvis:...
 
 3) Login to deezer with Chromium (free account).
 
-4) Configure the <a target="_blank" href="https://github.com/QuentinCG/jarvis-deezer/blob/master/config.sh">configuration file</a> to match your requirements.
+4) Configure the <a target="_blank" href="https://github.com/AlexCoursi/jarvis-deezer/blob/master/config.sh">configuration file</a> to match your requirements.
 
 5) Launch Jarvis on normal mode (background mode is not possible for now because of DISPLAY and xdotool)
 
