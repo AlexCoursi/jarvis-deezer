@@ -11,4 +11,4 @@
 *VOLUME * (*)==volume="(1)" && pg_dz_volume "$volume" && say "Volume à $volume pourcent"
 *PLUS*FORT*|*AUGMENTE*|*MONTE*==pg_dz_volumeChange $jv_pg_dz_incrementVolume && say "Volume plus fort"
 *MOINS*FORT*|*BAISSE*==pg_dz_volumeChange -$jv_pg_dz_incrementVolume && say "Volume moins fort"
-
+*TITRE*|*ARTISTE*==pg_dz_runDeezer titre

@@ -13,7 +13,7 @@ pg_dz_lancerChromium()
         if [ "$deezerDejaLance" == "" ]
         then
                 lxterminal -e screen $jv_pg_dz_nomBrowser $1
-                sleep 17s
+                sleep 20s
                 xdotool search --name screen windowactivate
                 xdotool key shift+ctrl+q
         fi
@@ -84,6 +84,17 @@ pg_dz_volumeChange()
 	amixer cset numid=1 -- $volumeNew%
 }
 
+pg_dz_titre()
+{
+	deezerDejaLance=`xdotool search --class chromium | tail -1`
+        if [ ! "$deezerDejaLance" == "" ]
+        then
+            artiste=`xdotool getwindowname $deezerDejaLance | awk '{split($0,a," - "); print a[2]}'`
+			titre=`xdotool getwindowname $deezerDejaLance | awk '{split($0,a," - "); print a[1]}'`
+			say "La chanson en cours est $titre de $artiste"
+        fi
+}
+
 
 pg_dz_runDeezer()
 {
@@ -146,6 +157,10 @@ case "$1" in
 	
   previous)
 	pg_dz_previousSong
+	;;
+	
+  titre)
+	pg_dz_titre
 	;;
 
   liste)
