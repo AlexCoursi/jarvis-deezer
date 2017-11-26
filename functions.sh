@@ -91,9 +91,7 @@ pg_dz_titre()
         then
             artiste=`xdotool getwindowname $deezerDejaLance | awk '{split($0,a," - "); print a[2]}'`
 		titre=`xdotool getwindowname $deezerDejaLance | awk '{split($0,a," - "); print a[1]}'`
-		pg_dz_lecturePause
 		say "La chanson en cours est $titre de $artiste"
-		pg_dz_lecturePause
         fi
 }
 
