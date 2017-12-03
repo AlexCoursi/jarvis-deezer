@@ -15,9 +15,9 @@ pg_dz_lancerChromium()
                 lxterminal -e screen $jv_pg_dz_nomBrowser $1
                 sleep 20s
                 xdotool search --name screen windowactivate
+		sleep 1s
 		xdotool key Escape
 		sleep 1s
-                xdotool key shift+ctrl+q
         fi
 }
 
