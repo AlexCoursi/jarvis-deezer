@@ -28,10 +28,11 @@ pg_dz_arreterChromium()
         then
                 xdotool windowactivate $deezerDejaLance
                 xdotool key ctrl+w
+		sleep 1s
 	        deezerDejaLance=`xdotool search --class chromium | tail -1`
                 if [ ! "$deezerDejaLance" == "" ]
                 then
-                        xdotool key "Return"
+                        xdotool key Return
                 fi
         fi
 }
