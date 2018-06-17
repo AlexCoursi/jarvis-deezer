@@ -81,6 +81,19 @@ pg_dz_previousSong()
         fi
 }
 
+pg_dz_aleatoire()
+{
+        deezerDejaLance=`xdotool search --class chromium | tail -1`
+        if [ ! "$deezerDejaLance" == "" ]
+        then
+                jv_pg_dz_hauteurFenetre=`xdotool getwindowgeometry $deezerDejaLance | grep Geometry | sed -e 's/.*Geometry.*x\(.*\)/\1/g'`
+                jv_pg_dz_hauteurDuBoutonPlay=$(($jv_pg_dz_hauteurFenetre - $jv_pg_dz_offsetHauteurNegativeBoutonRandom))
+                jv_pg_dz_longueurDuBoutonPlay=$jv_pg_dz_offsetLargeurPositiveBoutonRandom
+                xdotool windowactivate $deezerDejaLance mousemove --sync --window $deezerDejaLance $jv_pg_dz_longueurDuBoutonPlay $jv_pg_dz_hauteurDuBoutonPlay click 1
+        fi
+}
+
+
 pg_dz_volume()
 {
 	amixer cset numid=1 -- $1%
@@ -129,6 +142,7 @@ case "$1" in
 
         pg_dz_lancerChromium "http://www.deezer.com/playlist/$valeur"
         pg_dz_lecturePause
+	pg_dz_aleatoire
         ;;
 		
   startMix)
@@ -151,6 +165,7 @@ case "$1" in
 
         pg_dz_lancerChromium "http://www.deezer.com/mixes/genre/$valeur"
         pg_dz_lecturePause
+	pg_dz_aleatoire
         ;;
 
   stop)

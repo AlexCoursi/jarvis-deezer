@@ -8,5 +8,7 @@ jv_pg_dz_offsetHauteurNegativeBoutonNext=56 #ne doit pas être modifié
 jv_pg_dz_offsetLargeurPositiveBoutonNext=154 #ne doit pas être modifié
 jv_pg_dz_offsetHauteurNegativeBoutonPrevious=56 #ne doit pas être modifié
 jv_pg_dz_offsetLargeurPositiveBoutonPrevious=67 #ne doit pas être modifié
+jv_pg_dz_offsetHauteurNegativeBoutonRandom=21 #ne doit pas être modifié
+jv_pg_dz_offsetLargeurPositiveBoutonRandom=138 #ne doit pas être modifié
 jv_pg_dz_volumeDefaut=85 #Volume par défaut en pourcent
 jv_pg_dz_incrementVolume=3 #Volume par défaut en pourcent
